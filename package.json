@@ -2,7 +2,7 @@
   "name": "clean",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://99narii.github.io/clean",
+  "homepage": "https://99narii.github.io/clean/",
   "dependencies": {
     "@chakra-ui/react": "^2.8.2",
     "@emotion/react": "^11.13.3",
