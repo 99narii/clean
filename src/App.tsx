@@ -8,6 +8,7 @@ function App() {
       <div className="App">
         <header className="App-header">
           클린
+          업데이트
         </header>
       </div>
     </ChakraProvider>
