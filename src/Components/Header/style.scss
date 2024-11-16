@@ -1,0 +1,54 @@
+@import '../../Styles/variables.scss';
+
+.header {
+    padding: 1rem 2rem;
+    background-color: $WHITE;
+    font-family: 'Paperlogy-8ExtraBold';    
+    font-weight: 400;
+    width: 100%;
+    >div {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: auto;
+        .logo {
+            width: 4rem;
+        }
+        nav {
+            display: flex;
+            gap: 2.2rem;
+            color: $FONT_COLOR;
+            a {
+                font-size: 1.2rem;
+            }   
+        }    
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .header {
+      height: 100px ;
+    }
+  }
+
+  @media screen and (min-width: 769px) {
+    .header {
+      height: 150px ;
+      padding: 1rem 5rem;
+      >div {
+        max-width: $MAX_WIDTH;
+
+        .logo {
+            width: 7rem;
+        }
+    
+        nav {
+            gap: 5rem;
+            color: $FONT_COLOR;
+            a {
+                font-size: 2rem;
+            }
+        }    
+      }
+    }
+  }

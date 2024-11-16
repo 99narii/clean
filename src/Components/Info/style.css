@@ -1,0 +1,63 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap");
+@import url("https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css");
+@font-face {
+  font-family: "MaruBuri";
+  src: url(https://hangeul.pstatic.net/hangeul_static/webfont/MaruBuri/MaruBuri-Regular.eot);
+  src: url(https://hangeul.pstatic.net/hangeul_static/webfont/MaruBuri/MaruBuri-Regular.eot?#iefix) format("embedded-opentype"), url(https://hangeul.pstatic.net/hangeul_static/webfont/MaruBuri/MaruBuri-Regular.woff2) format("woff2"), url(https://hangeul.pstatic.net/hangeul_static/webfont/MaruBuri/MaruBuri-Regular.woff) format("woff"), url(https://hangeul.pstatic.net/hangeul_static/webfont/MaruBuri/MaruBuri-Regular.ttf) format("truetype");
+}
+@font-face {
+  font-family: "Paperlogy-8ExtraBold";
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-8ExtraBold.woff2") format("woff2");
+  font-weight: 800;
+  font-style: normal;
+}
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.info {
+  font-family: "NanumSquare", sans-serif;
+  font-size: 1.3rem;
+  display: flex;
+  justify-content: space-around;
+  padding: 5vw 0;
+  margin: 5vw auto;
+  gap: 2rem;
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+}
+.info > div {
+  text-align: left;
+  background-color: #f2f7f6;
+  border-radius: 1rem;
+  padding: 3rem;
+  opacity: 0;
+  animation: fadein 1s forwards;
+  width: 27rem;
+}
+.info > div.card {
+  animation-delay: 0s;
+}
+.info > div b {
+  font-size: 1.7rem;
+}
+
+@media screen and (max-width: 769px) {
+  .info {
+    flex-direction: column;
+    font-size: 1.1rem;
+    width: 100%;
+  }
+  .info > div {
+    text-align: center;
+    width: 90%;
+    margin: 0 auto;
+  }
+  .info > div b {
+    font-size: 1.3rem;
+  }
+}/*# sourceMappingURL=style.css.map */

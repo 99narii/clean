@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap");
+@import url("https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css");
 @font-face {
   font-family: "MaruBuri";
   src: url(https://hangeul.pstatic.net/hangeul_static/webfont/MaruBuri/MaruBuri-Regular.eot);
@@ -10,20 +11,41 @@
   font-weight: 800;
   font-style: normal;
 }
-.App {
+.fade-up {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-in {
+  opacity: 0 !important;
+  transition: opacity 1s ease-in-out;
+}
+.fade-in.visible {
+  opacity: 1 !important;
+}
+
+.main {
+  width: 100%;
   display: flex;
   flex-direction: column;
-  text-align: center;
-  background-color: #91bcb4;
-  height: 100vh;
-  margin: 0 auto;
-  width: 100%;
-  overflow-x: hidden;
+  gap: 3rem;
 }
-.App > .contents {
+.main .process {
+  padding: 3rem 2rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease-in-out;
+}
+.main .process.visible {
+  opacity: 1;
+}
+
+.estimate {
+  height: 100%;
   width: 100%;
-  max-width: 1440px;
-  margin: 0 auto;
-  position: relative;
-  flex: 1;
-}/*# sourceMappingURL=App.css.map */
+}/*# sourceMappingURL=style.css.map */

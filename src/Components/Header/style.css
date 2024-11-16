@@ -10,20 +10,52 @@
   font-weight: 800;
   font-style: normal;
 }
-.App {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  background-color: #91bcb4;
-  height: 100vh;
-  margin: 0 auto;
+.header {
+  padding: 1rem 2rem;
+  background-color: #fff;
+  font-family: "Paperlogy-8ExtraBold";
+  font-weight: 400;
   width: 100%;
-  overflow-x: hidden;
 }
-.App > .contents {
-  width: 100%;
-  max-width: 1440px;
-  margin: 0 auto;
-  position: relative;
-  flex: 1;
-}/*# sourceMappingURL=App.css.map */
+.header > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto;
+}
+.header > div .logo {
+  width: 4rem;
+}
+.header > div nav {
+  display: flex;
+  gap: 2.2rem;
+  color: #637e79;
+}
+.header > div nav a {
+  font-size: 1.2rem;
+}
+
+@media screen and (max-width: 768px) {
+  .header {
+    height: 100px;
+  }
+}
+@media screen and (min-width: 769px) {
+  .header {
+    height: 150px;
+    padding: 1rem 5rem;
+  }
+  .header > div {
+    max-width: 1440px;
+  }
+  .header > div .logo {
+    width: 7rem;
+  }
+  .header > div nav {
+    gap: 5rem;
+    color: #637e79;
+  }
+  .header > div nav a {
+    font-size: 2rem;
+  }
+}/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,21 @@
+@import './Styles/variables.scss';
+
+.App {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  background-color: #91bcb4;
+  height: 100vh;
+  margin: 0 auto;
+  width: 100%;  
+  overflow-x: hidden;
+  
+  >.contents {
+    width: 100%;
+    max-width: $MAX_WIDTH;
+    margin: 0 auto;
+    position: relative;
+    flex: 1;
+  }
+}
+

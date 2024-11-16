@@ -1,16 +1,30 @@
 import React from 'react';
-import './App.css';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import './App.scss';
 import { ChakraProvider } from '@chakra-ui/react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Main from './Pages/Main';
+import { Estimate } from './Pages/Estimate';
+import Header from './Components/Header';
+import { Top } from './Components/Top';
 
 function App() {
   return (
     <ChakraProvider>
-      <div className="App">
-        <header className="App-header">
-          클린
-          업데이트
-        </header>
-      </div>
+      <Router>
+        <div className="App">
+            
+            <Header />
+            <div className='contents'>
+            <Top/>
+            <Routes>
+              <Route path="/" element={<Main />}  />
+              <Route path="/estimate" element={<Estimate />} />
+            </Routes>
+          </div>
+        </div>
+      </Router>
     </ChakraProvider>
   );
 }
