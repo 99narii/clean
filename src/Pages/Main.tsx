@@ -50,10 +50,10 @@ const Main = () => {
             <BannerSlider />
             <Info className={`info fade-in ${infoVisible ? 'visible' : ''}`} ref={infoRef} />
             <section>
-                <div className='service_area' ref={serviceAreaRef}>
-                    <p className={`fade-in ${isVisible ? 'visible' : ''}`}>뽀송 서비스 가능 지역</p>
-                    <b className={`fade-in ${isVisible ? 'visible' : ''}`}>서울 전 지역</b>
-                    <span className={`fade-in ${isVisible ? 'visible' : ''}`}>
+                <div className='service_area'>
+                    <p >뽀송 서비스 가능 지역</p>
+                    <b >서울 전 지역</b>
+                    <span >
                         <b>경기 서북부</b>(고양, 파주, 인천, 부천, 김포)
                     </span>
                 </div>
