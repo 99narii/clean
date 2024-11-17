@@ -15,24 +15,24 @@ export default function StepperComponents() {
 
   return (
     <Box overflowX="auto" minWidth="750px"> {/* 최소 너비 설정 및 좌우 스크롤 가능 */}
-      <Stepper index={activeStep} colorScheme="teal" size="lg">
+      <Stepper index={activeStep} colorScheme="white" size="lg">
         {steps.map((step, index) => (
         <Step key={index} style={{ color: activeStep === index ? '#fff' : '#405D72' }}>
             <Flex direction="column" align="center" mb={4}>
               <StepIndicator>
                 <StepStatus 
-                  complete={<StepIcon boxSize={6} color="#405D72" />}
+                  complete={<StepIcon boxSize={6} color={activeStep >= index ? '#fff' : '#A0AEC0'} />} 
                   incomplete={
-                    <Text fontSize="lg" color="gray.100">{index + 1}</Text>
+                    <Text fontSize="lg" color="#fff">{index + 1}</Text>
                   }
                   active={
-                    <Text fontSize="lg" fontWeight={600} color="#405D72">{index + 1}</Text>
+                    <Text fontSize="lg" fontWeight={600} color="#fff">{index + 1}</Text>
                   }
                 />
               </StepIndicator>
               <Box flexShrink='0' mt={2} textAlign="center">
-                <Text fontSize="xl" fontWeight={600} color="#405D72">{step.title}</Text>
-                <Text fontSize="md" color="#405D72">{step.description}</Text>
+                <Text fontSize="xl" fontWeight={600} color="#fff">{step.title}</Text>
+                <Text fontSize="md" color="#fff">{step.description}</Text>
               </Box>
             </Flex>
             <StepSeparator />
