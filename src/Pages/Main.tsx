@@ -54,7 +54,7 @@ const Main = () => {
                     <p className={`fade-in ${isVisible ? 'visible' : ''}`}>뽀송 서비스 가능 지역</p>
                     <b className={`fade-in ${isVisible ? 'visible' : ''}`}>서울 전 지역</b>
                     <span className={`fade-in ${isVisible ? 'visible' : ''}`}>
-                        <b>경기 서북부</b>(고양, 파주, 인천, 부천)
+                        <b>경기 서북부</b>(고양, 파주, 인천, 부천, 김포)
                     </span>
                 </div>
             </section>
