@@ -63,6 +63,7 @@ const questions: Questions = {
             question: '추가 서비스가 필요하신가요?',
             info: '세탁기, 냉장고, 에어컨 기본 청소 추가가 가능합니다.',
             options: [
+                { label: '없음', price: 0 }, 
                 { label: '세탁기', price: 2 }, 
                 { label: '냉장고', price: 3 }, 
                 { label: '에어컨', price: 2 }, 
