@@ -3,6 +3,7 @@ import './style.scss';
 import BannerSlider from '../Components/Slide';
 import ProcessImg from '../Assets/img/process.png';
 import {Info} from '../Components/Info';
+import StepperComponents from '../Components/Stepper';
 
 const Main = () => {
     const [processVisible, setProcessVisible] = useState(false);
@@ -45,8 +46,8 @@ const Main = () => {
             <Info className={`info fade-in ${infoVisible ? 'visible' : ''}`} ref={infoRef} />
             <section>
                 <p>OUR PROCESS</p>
-                <div className={`process fade-in ${processVisible ? 'visible' : ''}`} ref={processRef}>
-                    <img src={ProcessImg} alt="Process illustration" />
+                <div className='process'>
+                    <StepperComponents />
                 </div>
             </section>
         </div>

@@ -30,12 +30,7 @@
 
     .process {
         padding: 3rem 2rem;
-        opacity: 0;
-        transform: translateY(20px);
-        transition: opacity 0.5s ease-in-out;
-        &.visible {
-            opacity: 1;
-        }
+        overflow-x: auto;
     }
 }
 .estimate {
@@ -180,7 +175,7 @@
                 padding: 0;
                 margin: 1rem auto;
                 >button {
-                    padding: 1rem;
+                    padding: 1rem 2rem;
                     font-size: 1rem;
                 }
             }
