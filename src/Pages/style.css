@@ -47,8 +47,8 @@
 }
 
 .estimate {
-  min-height: 60vh;
   width: 100%;
+  height: 100%;
   background-color: #fff;
   margin: 10vh 0;
   padding: 5vh 0;
@@ -77,11 +77,11 @@
 .estimate .box .quast_box {
   background-color: #637e79;
   color: #fff;
-  width: 70%;
-  padding: 3rem;
+  max-width: 70%;
+  padding: 2rem 3rem;
   margin: 0 auto;
   border-radius: 10rem;
-  font-size: 2.4rem;
+  font-size: 2.2rem;
 }
 .estimate .box .quast_info {
   margin: 2rem;
@@ -107,7 +107,7 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
-  gap: 5rem;
+  gap: 4rem;
 }
 .estimate .box .result .total {
   font-size: 1.6rem;
@@ -116,6 +116,9 @@
   font-size: 2rem;
   border-bottom: 10px solid #78909C;
   transform: translateY(-5px);
+}
+.estimate .box .result .total_info {
+  font-size: 0.8rem;
 }
 .estimate .box .result button {
   padding: 0.7rem 3rem;
@@ -130,17 +133,64 @@
   margin: 0 auto;
   background-color: #90A4AE;
 }
+.estimate .box .result .btn_set {
+  display: flex;
+  justify-content: space-around;
+  width: 70%;
+  margin: 0 auto;
+}
 .estimate .box .result .btn_set > button {
+  border-radius: 0;
+  padding: 1rem;
+  width: 50%;
   color: #37474F;
+  font-weight: 600;
+}
+.estimate .box .result .btn_set > button.call_btn {
+  background-color: #B0BEC5;
+}
+.estimate .box .result .btn_set > button.sms_btn {
+  background-color: #CFD8DC;
 }
 
 @media screen and (max-width: 769px) {
+  .estimate {
+    margin-bottom: 0 !important;
+    padding: 5vw 0 1vw;
+  }
+  .estimate .tit .main_tit {
+    font-size: 1.6rem;
+    padding: 0 2rem;
+  }
+  .estimate .tit .body_tit {
+    font-size: 0.8rem;
+  }
   .estimate .box .quast_box {
-    width: 90%;
-    padding: 5vw;
-    font-size: 1.4rem;
+    max-width: 90%;
+    padding: 5vw 2vw;
+    font-size: 1.1rem;
+    margin: 0 auto !important;
+  }
+  .estimate .box .quast_info {
+    font-size: 0.8rem;
   }
   .estimate .box .answer_box {
-    max-width: 90%;
+    max-width: 100%;
+    gap: 1rem;
+    padding: 0;
+    margin: 1rem auto;
+  }
+  .estimate .box .answer_box > button {
+    padding: 1rem;
+    font-size: 1rem;
+  }
+  .estimate .result {
+    gap: 3rem !important;
+  }
+  .estimate .result .btn_set {
+    width: 100% !important;
+  }
+  .estimate .result .btn_set > button {
+    font-size: 1rem;
   }
 }/*# sourceMappingURL=style.css.map */

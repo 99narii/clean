@@ -1,0 +1,45 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap");
+@import url("https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css");
+@font-face {
+  font-family: "MaruBuri";
+  src: url(https://hangeul.pstatic.net/hangeul_static/webfont/MaruBuri/MaruBuri-Regular.eot);
+  src: url(https://hangeul.pstatic.net/hangeul_static/webfont/MaruBuri/MaruBuri-Regular.eot?#iefix) format("embedded-opentype"), url(https://hangeul.pstatic.net/hangeul_static/webfont/MaruBuri/MaruBuri-Regular.woff2) format("woff2"), url(https://hangeul.pstatic.net/hangeul_static/webfont/MaruBuri/MaruBuri-Regular.woff) format("woff"), url(https://hangeul.pstatic.net/hangeul_static/webfont/MaruBuri/MaruBuri-Regular.ttf) format("truetype");
+}
+@font-face {
+  font-family: "Paperlogy-8ExtraBold";
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-8ExtraBold.woff2") format("woff2");
+  font-weight: 800;
+  font-style: normal;
+}
+.footer {
+  background-color: #f0f0f0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  font-family: "NanumSquare", sans-serif;
+  padding: 3rem;
+}
+.footer > div {
+  max-width: 1440px;
+  width: 100%;
+  text-align: left;
+  margin: 0 auto;
+}
+.footer > div > div {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+.footer > div > div span {
+  color: #37474F;
+}
+.footer > div > div span::before {
+  border: 1px solid black;
+}
+
+@media screen and (max-width: 769px) {
+  .footer {
+    padding: 0.6rem;
+    font-size: 0.8rem;
+  }
+}/*# sourceMappingURL=style.css.map */

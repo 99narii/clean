@@ -8,6 +8,7 @@ import Main from './Pages/Main';
 import { Estimate } from './Pages/Estimate';
 import Header from './Components/Header';
 import { Top } from './Components/Top';
+import { Footer } from './Components/Footer';
 
 function App() {
   const topRef = useRef<HTMLDivElement | null>(null);
@@ -45,6 +46,7 @@ function App() {
             <Estimate />
           </div>
         </div>
+        <Footer />
       </div>
     </ChakraProvider>
   );

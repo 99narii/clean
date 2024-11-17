@@ -10,3 +10,10 @@ export interface HeaderProps {
 export interface TopProps {
   scrollToTop: () => void;
 }
+
+export interface ModalProps {
+  onConfirm: () => void;
+  msg: string;
+  isOpen: boolean;
+  onClose: () => void;
+}

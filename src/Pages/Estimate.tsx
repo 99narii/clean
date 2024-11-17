@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
 import './style.scss';
+import ModalComponent from '../Components/Modal';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPhone, faCommentSms } from "@fortawesome/free-solid-svg-icons";
+import { useDisclosure, Collapse, Box, Button, SlideFade } from '@chakra-ui/react';
 
 type QuestionOption = {
     label: string;
@@ -23,6 +27,7 @@ const questions: Questions = {
             info: '',
             options: [
                 { label: '원룸', price: 10 }, 
+                { label: '복층', price: 13 }, 
                 { label: '1.5룸', price: 13 }, 
                 { label: '주방', price: 7 }, 
                 { label: '화장실', price: 7 }
@@ -61,10 +66,10 @@ const questions: Questions = {
                 { label: '세탁기', price: 2 }, 
                 { label: '냉장고', price: 3 }, 
                 { label: '에어컨', price: 2 }, 
-                { label: '세탁기 + 냉장고', price: 5 }, 
-                { label: '세탁기 + 에어컨', price: 4 }, 
-                { label: '냉장고 + 에어컨', price: 4 }, 
-                { label: '세탁기 + 냉장고 + 에어컨', price: 7 }, 
+                { label: '세탁기+냉장고', price: 5 }, 
+                { label: '세탁기+에어컨', price: 4 }, 
+                { label: '냉장고+에어컨', price: 4 }, 
+                { label: '세탁기+냉장고+에어컨', price: 7 }, 
             ],
         },
     ],
@@ -95,29 +100,71 @@ export const Estimate: React.FC = () => {
     const [totalEstimate, setTotalEstimate] = useState<number>(0); 
     const [responses, setResponses] = useState<QuestionOption[]>([]);
     const [currentStage, setCurrentStage] = useState<'initial' | 'size' | 'bathroom' | 'more' | 'add' | 'result'>('initial');
+    const [isCallModalOpen, setCallModalOpen] = useState(false);
+    const [isSmsModalOpen, setSmsModalOpen] = useState(false);
+    const [isQuestionVisible, setQuestionVisible] = useState(true);
+    const [moreMsg, setMoreMsg] = useState<string>(''); 
+
+    const phoneNumber = '+821024881056';
+    const message = '안녕하세요, 견적 문의드립니다.';
+
+    const handleCall = () => {
+        window.location.href = `tel:${phoneNumber}`;
+    };
+
+    const handleSms = () => {
+        window.location.href = `sms:${phoneNumber}?body=${encodeURIComponent(message)}`;
+    };
+
+    const handleConfirmCall = () => {
+        handleCall();
+        setCallModalOpen(false);
+    };
+
+    const handleConfirmSms = () => {
+        handleSms();
+        setSmsModalOpen(false);
+    };
 
     const handleOptionSelect = (option: QuestionOption) => {
         const newResponses = [...responses, option];
         setResponses(newResponses);
 
-        if (currentStage === 'initial') {
-            if (option.label === '주방') {
+        setQuestionVisible(false); // 질문 숨기기
+
+        setTimeout(() => {
+            if (currentStage === 'initial') {
+                if (option.label === '주방') {
+                    setCurrentStage('more');
+                    setMoreMsg('')
+                } else if (option.label === '화장실') {
+                    setCurrentStage('bathroom');
+                    
+                } else {
+                    setCurrentStage('size');
+                }
+            } else if (currentStage === 'size') {
+                setCurrentStage('add');
+                if (option.label === '12평 이상') {
+                    setMoreMsg('이상')
+                } else {
+                    setMoreMsg('')
+                }
+            } else if (currentStage === 'bathroom') {
+                if (option.label === '3개 이상') {
+                    setMoreMsg('이상')
+                } else {
+                    setMoreMsg('')
+                }
                 setCurrentStage('more');
-            } else if (option.label === '화장실') {
-                setCurrentStage('bathroom');
-            } else {
-                setCurrentStage('size');
+            } else if (currentStage === 'add') {
+                setCurrentStage('more');
+            } else if (currentStage === 'more') {
+                calculateEstimate(newResponses);
+                setCurrentStage('result');
             }
-        } else if (currentStage === 'size') {
-            setCurrentStage('add');
-        } else if (currentStage === 'bathroom') {
-            setCurrentStage('more');
-        } else if (currentStage === 'add') {
-            setCurrentStage('more');
-        } else if (currentStage === 'more') {
-            calculateEstimate(newResponses);
-            setCurrentStage('result');
-        } 
+            setQuestionVisible(true); // 질문 다시 보이기
+        }, 300); // 애니메이션 시간에 맞춰 설정
     };
 
     const calculateEstimate = (responses: QuestionOption[]) => {
@@ -129,17 +176,7 @@ export const Estimate: React.FC = () => {
         setResponses([]);
         setCurrentStage('initial');
         setTotalEstimate(0);
-    };
-
-    const handleCall = () => {
-        const phoneNumber = '+821024881056'; // 실제 전화번호로 변경
-        window.location.href = `tel:${phoneNumber}`;
-    };
-
-    const handleSms = () => {
-        const phoneNumber = '+821024881056'; // 실제 전화번호로 변경
-        const message = '안녕하세요, 견적 문의드립니다.'; // 전송할 메시지
-        window.location.href = `sms:${phoneNumber}?body=${encodeURIComponent(message)}`;
+        setQuestionVisible(true); // 초기화 시 질문 보이기
     };
 
     const currentQuestions = questions[currentStage]; // 현재 단계에 맞는 질문 가져오기
@@ -158,26 +195,43 @@ export const Estimate: React.FC = () => {
             <div className='box'>
                 {currentStage !== 'result' ? (
                     <div>
-                        <div className='quast_box'>
-                            <h2>{currentQuestions[0].question}</h2>
-                        </div>
-                        <div className='quast_info'>{currentQuestions[0].info}</div>
-                        <div className='answer_box'>
-                            {currentQuestions[0].options.map((option: QuestionOption, index: number) => (
-                                <button key={index} onClick={() => handleOptionSelect(option)}>
-                                    {option.label}
-                                </button>
-                            ))}
-                        </div>
+                        <SlideFade in={isQuestionVisible} offsetY='20px'>
+                            <Box>
+                                <div className='quast_box'>
+                                    <h2>{currentQuestions[0].question}</h2>
+                                </div>
+                                <div className='quast_info'>{currentQuestions[0].info}</div>
+                                <div className='answer_box'>
+                                    {currentQuestions[0].options.map((option: QuestionOption, index: number) => (
+                                        <button key={index} onClick={() => handleOptionSelect(option)}>
+                                            {option.label}
+                                        </button>
+                                    ))}
+                                </div>
+                            </Box>
+                        </SlideFade>
                     </div>
                 ) : (
                     <div className='result'>
-                        <p className='total'>견적은 <b>{totalEstimate}만원</b>입니다.</p>
+                        <p className='total'>견적은 <b>{totalEstimate}만원</b>
+                        {moreMsg && <span>{moreMsg}</span>} 입니다.</p>
+                        <p className='total_info'>12평 이상, 화장실 3개 이상, 각종 특이사항이 있는 경우엔<br/>
+                            자세한 상담을 통해 정확한 견적이 가능합니다.</p>
                         <button className='restart_btn' onClick={handleRestart}>다시하기</button>
                         <div className='btn_set'>
-                            <button className='call_btn' onClick={handleCall}>전화 문의</button>
-                            <button className='sms_btn' onClick={handleSms}>문자 문의</button>
+                            <button className='call_btn' onClick={() => setCallModalOpen(true)}><FontAwesomeIcon icon={faPhone}  /> 전화 문의</button>
+                            <button className='sms_btn' onClick={() => setSmsModalOpen(true)}><FontAwesomeIcon icon={faCommentSms}  /> 문자 문의</button>
                         </div>
+                        <ModalComponent msg="전화로 문의하시겠습니까?"
+                            isOpen={isCallModalOpen} 
+                            onClose={() => setCallModalOpen(false)}                         
+                            onConfirm={handleConfirmCall}  />
+                        <ModalComponent 
+                            msg="문자로 문의하시겠습니까?" 
+                            isOpen={isSmsModalOpen} 
+                            onClose={() => setSmsModalOpen(false)}             
+                            onConfirm={handleConfirmSms} 
+                        />
                     </div>
                 )}
             </div>
