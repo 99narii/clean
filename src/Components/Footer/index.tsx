@@ -12,7 +12,7 @@ export const Footer = () => {
                     <span>대표 : 유성래</span>
                 </div>
                 <div>
-                    <span>사업자등록번호 : </span>
+                    {/* <span>사업자등록번호 : </span> */}
                     <span>전화 : +8210-2488-1056</span>
                 </div>
             </div>

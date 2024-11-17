@@ -44,7 +44,7 @@ const Main = () => {
         <div className='main'>
             <BannerSlider />
             <Info className={`info fade-in ${infoVisible ? 'visible' : ''}`} ref={infoRef} />
-            <section>
+            <section className='process_sec'>
                 <p>OUR PROCESS</p>
                 <div className='process'>
                     <StepperComponents />
