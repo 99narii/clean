@@ -1,15 +1,16 @@
 import React from 'react';
 import './style.scss'; 
 import Logo from '../../Assets/img/logo.png'
+import { HeaderProps } from '../../Types/types';
 
-const Header = () => {
+const Header = ({ scrollToMain, scrollToEstimate }: HeaderProps) => {
     return (
         <header className="header">
             <div>
-            <a href='/'><img className='logo' src={Logo}/></a>
+            <button onClick={scrollToMain}><img className='logo' src={Logo}/></button>
             <nav>
-                <a href="/">뽀송클린</a>
-                <a href="/estimate">견적</a>
+                <button onClick={scrollToMain}>뽀송클린</button>
+                <button onClick={scrollToEstimate}>견적</button>
             </nav>
             </div>
         </header>

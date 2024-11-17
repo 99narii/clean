@@ -34,6 +34,7 @@
   display: flex;
   flex-direction: column;
   gap: 3rem;
+  font-family: "NanumSquare", sans-serif;
 }
 .main .process {
   padding: 3rem 2rem;
@@ -46,6 +47,100 @@
 }
 
 .estimate {
-  height: 100%;
+  min-height: 60vh;
   width: 100%;
+  background-color: #fff;
+  margin: 10vh 0;
+  padding: 5vh 0;
+  font-family: "NanumSquare", sans-serif;
+}
+.estimate .tit {
+  padding: 2rem 0;
+  font-size: 1.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.estimate .tit .main_tit {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  margin: 0 auto;
+  font-weight: 600;
+}
+.estimate .tit .body_tit {
+  font-size: 0.9rem;
+}
+.estimate .box {
+  margin: 3rem 0;
+}
+.estimate .box .quast_box {
+  background-color: #637e79;
+  color: #fff;
+  width: 70%;
+  padding: 3rem;
+  margin: 0 auto;
+  border-radius: 10rem;
+  font-size: 2.4rem;
+}
+.estimate .box .quast_info {
+  margin: 2rem;
+}
+.estimate .box .answer_box {
+  margin: 3rem auto;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  max-width: 55%;
+}
+.estimate .box .answer_box > button {
+  padding: 1rem 2rem;
+  border-radius: 3rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #000;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.estimate .box .result {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5rem;
+}
+.estimate .box .result .total {
+  font-size: 1.6rem;
+}
+.estimate .box .result .total > b {
+  font-size: 2rem;
+  border-bottom: 10px solid #78909C;
+  transform: translateY(-5px);
+}
+.estimate .box .result button {
+  padding: 0.7rem 3rem;
+  width: -moz-fit-content;
+  width: fit-content;
+  border-radius: 10px;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #fff;
+}
+.estimate .box .result button.restart_btn {
+  margin: 0 auto;
+  background-color: #90A4AE;
+}
+.estimate .box .result .btn_set > button {
+  color: #37474F;
+}
+
+@media screen and (max-width: 769px) {
+  .estimate .box .quast_box {
+    width: 90%;
+    padding: 5vw;
+    font-size: 1.4rem;
+  }
+  .estimate .box .answer_box {
+    max-width: 90%;
+  }
 }/*# sourceMappingURL=style.css.map */

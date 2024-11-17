@@ -37,10 +37,14 @@
   padding: 3rem;
   opacity: 0;
   animation: fadein 1s forwards;
-  width: 27rem;
+  width: 33%;
 }
 .info > div.card {
   animation-delay: 0s;
+  transition: transform 0.3s ease;
+}
+.info > div.card:hover {
+  transform: scale(1.05);
 }
 .info > div b {
   font-size: 1.7rem;

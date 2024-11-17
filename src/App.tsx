@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useRef} from 'react';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import './App.scss';
@@ -10,21 +10,42 @@ import Header from './Components/Header';
 import { Top } from './Components/Top';
 
 function App() {
+  const topRef = useRef<HTMLDivElement | null>(null);
+  const mainRef = useRef<HTMLDivElement | null>(null);
+  const estimateRef = useRef<HTMLDivElement | null>(null);
+
+  const scrollToTop = () => {
+    if (topRef.current) {
+      topRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const scrollToMain = () => {
+    if (mainRef.current) {
+      mainRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const scrollToEstimate = () => {
+    if (estimateRef.current) {
+      estimateRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
   return (
     <ChakraProvider>
-      <Router>
-        <div className="App">
-            
-            <Header />
-            <div className='contents'>
-            <Top/>
-            <Routes>
-              <Route path="/" element={<Main />}  />
-              <Route path="/estimate" element={<Estimate />} />
-            </Routes>
+      <div className="App" >
+        <div ref={topRef}></div>
+        <Header scrollToMain={scrollToMain} scrollToEstimate={scrollToEstimate} />
+        <div className='contents'>
+          <Top scrollToTop={scrollToTop} />
+          <div ref={mainRef}>
+            <Main />
+          </div>
+          <div ref={estimateRef}>
+            <Estimate />
           </div>
         </div>
-      </Router>
+      </div>
     </ChakraProvider>
   );
 }

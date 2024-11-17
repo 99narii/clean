@@ -43,9 +43,12 @@ const Main = () => {
         <div className='main'>
             <BannerSlider />
             <Info className={`info fade-in ${infoVisible ? 'visible' : ''}`} ref={infoRef} />
-            <div className={`process fade-in ${processVisible ? 'visible' : ''}`} ref={processRef}>
-                <img src={ProcessImg} alt="Process illustration" />
-            </div>
+            <section>
+                <p>OUR PROCESS</p>
+                <div className={`process fade-in ${processVisible ? 'visible' : ''}`} ref={processRef}>
+                    <img src={ProcessImg} alt="Process illustration" />
+                </div>
+            </section>
         </div>
     );
 };

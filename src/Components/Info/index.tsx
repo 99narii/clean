@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react';
 import './style.scss'; 
-import { AnimationProps } from '../../Types/typeAnimation';
+import { AnimationProps } from '../../Types/types';
 
 const content = [
     { title: '헌 집을 새 집 처럼', description: '다음 세입자를 위한 집주인의 배려' },

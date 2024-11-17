@@ -18,7 +18,7 @@
   height: 100vh;
   margin: 0 auto;
   width: 100%;
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
 }
 .App > .contents {
   width: 100%;

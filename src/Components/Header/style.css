@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap");
+@import url("https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css");
 @font-face {
   font-family: "MaruBuri";
   src: url(https://hangeul.pstatic.net/hangeul_static/webfont/MaruBuri/MaruBuri-Regular.eot);
@@ -30,8 +31,6 @@
   display: flex;
   gap: 2.2rem;
   color: #637e79;
-}
-.header > div nav a {
   font-size: 1.2rem;
 }
 
@@ -54,8 +53,6 @@
   .header > div nav {
     gap: 5rem;
     color: #637e79;
-  }
-  .header > div nav a {
     font-size: 2rem;
   }
 }/*# sourceMappingURL=style.css.map */
