@@ -57,6 +57,7 @@ const Main = () => {
                         <b>경기 서북부</b>(고양, 파주, 인천, 부천, 김포)
                     </span>
                 </div>
+                <b className='tit_name'>뽀송</b>
             </section>
             <section className='process_sec'>
                 <p>OUR PROCESS</p>
